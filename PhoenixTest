@@ -1,0 +1,29 @@
+// Test script for mock Phoenix mission in KSP
+
+// *** Mission Spec:
+// Orbital insertion
+  // Launch from KSC to apoapsis = 250km orbit (400km in real mission)
+  // at alt = 70k, open fairings and deploy antennas (dishes should be pointed)
+  // at 1m from apoapsis, ditch stage if necessary, point prograde and burn
+  // wait until periapsis is greater than 240km
+  // release controls
+// Science mission
+  // target KSC
+    // Check latitude and longitude of KSC and satellite
+  // when above KSC, lock controls to pro-target, take science, transmit
+  // unlock controls when passed KSC
+
+
+
+
+// Controls:
+set targetAltitude to 250000.
+
+// Variables:
+
+// Functions:
+function distanceFromKSC {
+  // calculate distance from KSC, return it
+  set distance to 1.
+  return distance.
+}
