@@ -1,5 +1,7 @@
 // Equivalent to the Grasshopper mission
 
+parameter alt. // feed function a target alt.
+
 // Stages of deployment
   // 1. Liftoff the launchpad at controlled vertical speed
   // 2. When apoapsis reaches altitude, reduce thrust to slower speed
@@ -9,13 +11,13 @@
 
 // Control Variables:
 set ascentSpeed to 10. // m/s
-set targetAltitude to 100. // m
-set approachAlt to targetAltitude - 20. // m
+set targetAltitude to alt. // m
+set approachAlt to targetAltitude - 30. // m
 
 set hoverTime to 20. // s
 
 set descentSpeed to -10. // m/s
-set descentAlt to 20. // m
+set descentAlt to 30. // m
 set landingSpeed to -2. // m/s
 
 set condition to "Idle".
@@ -38,6 +40,7 @@ set condition to "Ready".
 printVars().
 //set steering to R(0,90,0).
 run countdown.
+stage.
 
 set condition to "Ascent".
 until alt:radar > approachAlt { // fast approach
