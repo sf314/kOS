@@ -1,14 +1,11 @@
 // Counts down from 10 and launches
 // call in any other program with run countdown.
-// automatically activates first stage at max throttle
+// does not automatically activate first stage
 
 from {set x to 10} until x = 0 step {set x to x - 1} do {
 	clearscreen.
 	print “Launching in “ + x.
 	wait 1.
 }
-print “Liftoff!”
-
-set throttle to 1.0.
-print “Throttle set to 1.”
-stage.
+clearscreen.
+print “Liftoff!”.

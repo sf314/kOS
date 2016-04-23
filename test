@@ -27,7 +27,7 @@ print "launching @5deg".
 lock throttle to 1.0.
 set mysteer to heading(90,85).
 
-// **** staging logic 
+// **** staging logic
 lock shouldStage to stage:liquidfuel < 0.1 and throttle > 0.1.
 when shouldStage then {
     print "auto-staging. Line 31.".
@@ -46,7 +46,7 @@ lock mysteer to prograde.
 print "Suborbital burn complete. Steering prograde".
 
 wait until ship:altitude > 70000.
-print "waiting until apoapsis...". 
+print "waiting until apoapsis...".
 
 
 
@@ -56,7 +56,7 @@ until ship:orbit:periapsis > 75000 {
     clearscreen.
     print eta:apoapsis.
     print "within until peri > 75k".
-        
+
     if eta:apoapsis < 30 {
         print"if".
         set add to throttle + 0.01.
@@ -64,7 +64,7 @@ until ship:orbit:periapsis > 75000 {
         lock throttle to t.
     } else {
         print "else".
-        
+
         if periapsis > 0 {
             print "almost there".
             lock throttle to 1.
@@ -73,19 +73,19 @@ until ship:orbit:periapsis > 75000 {
             set sub to throttle - 0.01.
             set t to max(0, sub).
             lock throttle to t.
-        } 
-        
+        }
+
     }
-        
-    
-    // stagin logic 
+
+
+    // stagin logic
     if stage:liquidfuel < 0.1 {
         stage.
         print "staging".
     }
-   
+
     wait 0.001.
-    
+
 }
 print "Successful orbital insertion".
 lock throttle to 0.

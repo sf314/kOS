@@ -27,3 +27,8 @@ function distanceFromKSC {
   set distance to 1.
   return distance.
 }
+
+
+
+// Gravity turn logic (none of this parking orbit stuff!)
+set tgtAlt to targetAltitude.

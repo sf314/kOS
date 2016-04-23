@@ -1,0 +1,122 @@
+// Equivalent to the Grasshopper mission
+
+// Stages of deployment
+  // 1. Liftoff the launchpad at controlled vertical speed
+  // 2. When apoapsis reaches altitude, reduce thrust to slower speed
+  // 3. At altitude, dynamically control thrust to maintain altitude.
+  // 4. After set period of time, descend at preset vertical speed
+  // 5. At n metres above radar surface alt, reduce vertical speed to 2 m/s
+
+// Control Variables:
+set ascentSpeed to 10. // m/s
+set targetAltitude to 100. // m
+set approachAlt to targetAltitude - 20. // m
+
+set hoverTime to 20. // s
+
+set descentSpeed to -10. // m/s
+set descentAlt to 20. // m
+set landingSpeed to -2. // m/s
+
+set condition to "Idle".
+set physicsWait to 0.001.
+
+
+function printVars {
+  print "Alt: " at (0, 12).
+  print alt:radar at (0, 16).
+  print "Vel: " at (1, 12).
+  print verticalspeed at (1, 16).
+  print condition at (2, 12).
+}
+
+
+// ***** Ascend until desired altitude
+
+set steering to up.
+set condition to "Ready".
+printVars().
+//set steering to R(0,90,0).
+run countdown.
+
+set condition to "Ascent".
+until alt:radar > approachAlt { // fast approach
+  // control thrust levels to maintain constant vertical velocity
+  if verticalspeed < ascentSpeed {
+    set throttle to min(1, throttle + 0.01).
+  } else {
+    set throttle to max(0, throttle - 0.01).
+  }
+  printVars().
+  wait physicsWait.
+}
+
+set condition to "Slow Ascent".
+until alt:radar > targetAltitude { // slow approach
+  // control thrust to ascend at slower speed
+  if verticalSpeed < 1 {
+    set throttle to min(1, throttle + 0.01).
+  } else {
+    set throttle to max(0, throttle - 0.01).
+  }
+  printVars().
+  wait physicsWait.
+}
+// After this code block ends, you will have reached targetAltitude
+
+
+
+
+
+
+// ***** Maintain altitude for n seconds
+set startTime to sessionTime.
+set deltaTime to 0.
+set condition to "Hovering".
+
+until deltaTime > hoverTime {
+  if alt:radar < targetAltitude {
+    set throttle to min(1, throttle + 0.001).
+  } else {
+    set throttle to max(0, throttle - 0.001).
+  }
+  set deltaTime to sessionTime - startTime.
+  printVars().
+  wait physicsWait.
+}
+// After this code block, n seconds have passed
+
+
+
+
+// ***** Descend at controlled velocity
+set condition to "Descent".
+
+until alt:radar < descentAlt {
+  if verticalspeed > descentSpeed { // descentSpeed is negative. Vert will thus be slower
+    set throttle to max(0, throttle - 0.01).
+  } else {
+    set throttle to min(1, throttle + 0.01).
+  }
+  printVars().
+  wait physicsWait.
+}
+
+set condition to "Landing".
+until maxthrust < 0.1 { // detect at launchpad
+  if verticalSpeed < landingSpeed {
+    set throttle to max(0, throttle - 0.01).
+  } else {
+    set throttle to min(1, throttle + 0.01).
+  }
+  printVars().
+  wait physicsWait.
+}
+// After this block, the rocket should be landed.
+
+
+unlock all.
+
+
+// SO BAD THINGS DON'T HAPPEN
+SET SHIP:CONTROL:PILOTMAINTHROTTLE TO 0.
