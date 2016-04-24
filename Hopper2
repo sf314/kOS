@@ -1,6 +1,7 @@
 // Try again with the hopper!
 // Testing implementation of PID controller
 parameter desiredAlt.
+parameter hoverTime.
 
 LOCK STEERING TO R(0,0,-90) + HEADING(90,90). // new heading thing
 
@@ -62,7 +63,7 @@ until verticalspeed < 3 {
 print "hovering".                     // go back and forth between 1.2 and 0.8 g's
 set throttlePID:setpoint to 1.
 set time0 to time:seconds.
-until time:seconds - time0 > 20 {
+until time:seconds - time0 > hoverTime {
 
   if verticalspeed > 0 {
     set throttlePID:setpoint to 0.8.
@@ -77,3 +78,38 @@ until time:seconds - time0 > 20 {
 }
 
 print "Done".
+
+
+
+
+
+// ***** Descent to 50m above surface.
+print "beginning descent at 0.8g until set descent rate".
+set throttlePID:setpoint to 0.8.
+until verticalspeed < -5 {
+  set thr to thr + throttlePID:Update(time:seconds, gforce).
+  wait 0.001.
+}
+
+print "descending at 1g, approx 7m/s".
+set throttlePID:setpoint to 1.
+until alt:radar < 50 {
+  set thr to thr + throttlePID:Update(time:seconds, gforce).
+  wait 0.001.
+}
+
+print "preparing for landing...".
+set throttlePID:setpoint to 1.2.
+until throttle < 0.1 and alt:radar < 10 {
+  // if faster than 2m/s, increase twr, else, decrease twr.
+  if verticalspeed < -2 {
+    set throttlePID:setpoint to 1.2.
+  } else {
+    set throttlePID:setpoint to 0.8.
+  }
+
+  set thr to thr + throttlePID:Update(time:seconds, gforce).
+  wait 0.001.
+}
+
+print "Landed!!!".
