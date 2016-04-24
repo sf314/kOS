@@ -1,0 +1,17 @@
+// Try again with the hopper!
+
+
+LOCK STEERING TO R(0,0,-90) + HEADING(90,90).
+
+// Countdown
+from {set x to 10.} until x = 0 step {set x to x - 1.} do {
+  clearscreen.
+	print x.
+	wait 1.
+}
+clearscreen.
+stage.
+
+
+
+// calculating thrust for TWR of 1 (and lock it)
