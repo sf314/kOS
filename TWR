@@ -1,0 +1,5 @@
+// Test printing thrust-to-weight ratio
+
+set grav to 9.81.
+
+lock m to ship:mass.
