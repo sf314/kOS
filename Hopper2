@@ -17,7 +17,7 @@ set condition to "Ready".
 
 
 
-// calculating thrust for TWR of 1 (and lock it)
+// Print func
 function printVars {
   print "ALT: " + alt:radar + "                 " at (1,16).
   print "VEL: " + verticalspeed + "             " at (1, 17).
