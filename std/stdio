@@ -1,0 +1,15 @@
+// lib.stdio.ks
+// Functions for handling I/O
+// Summary of functions:
+
+// notify(message: String)
+//	prints message out to HUD
+// updateUI()
+//	prints fancy info to terminal UI
+
+
+
+function notify {
+	parameter ms.
+	HUDTEXT("kOS: " + ms, 5, 2, 50, white, false).
+}

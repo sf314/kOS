@@ -129,3 +129,5 @@ until throttle < 0.1 or ag9 {
 }
 
 print "Landed!!!".
+lock throttle to 0.
+sas off.
