@@ -1,3 +1,3 @@
 // On reboot, refresh some files:
-copyPath("0:executeNode.ks", "").
-run executeNode.ks.
+copyPath("0:kyperloop.ks", "").
+run kyperloop.ks.

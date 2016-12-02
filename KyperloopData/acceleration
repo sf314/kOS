@@ -1,0 +1,7 @@
+List of nominal accelerometer values for single flight
+
+Template:
+
+Version #: Flight # {
+	State: accelValue
+}

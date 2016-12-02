@@ -4,7 +4,7 @@ clearscreen.
 declare parameter targetAlt.
 // Testing the new alt-driven pid loop!
 
-copy SFFpidLoop from 0.
+copy SFFpidLoop from 0. // Already exists if boot.ks is run
 run SFFpidLoop.
 // Custom k-Values:
 set kP to 0.005.
@@ -41,7 +41,7 @@ LOCK STEERING TO R(0,0,-90) + HEADING(90,90). // new heading thing
 stage.
 set thr to 0.
 lock throttle to thr. // IMPORTANT!!!
-notify("Begin Mission").
+// notify("Begin Mission").
 toggle gear.
 
 until stage:liquidfuel < 10 {
