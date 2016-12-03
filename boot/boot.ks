@@ -10,6 +10,8 @@
 
 // Set user throttle to zero
 set ship:control:pilotmainthrottle to 0.
+// activate telnet!
+set config:telnet to true.
 
 // Load specific libs to the onboard computer (requires connection!)
 copypath("0:/std/stdio", "").
@@ -28,13 +30,19 @@ set craftBootScript to ship:name + ".boot".
 set archivePathToBootScript to "0:boot/" + craftBootScript.
 
 if exists(archivePathToUpdateScript) {
-    // Check if update exists in Archive (like on subseqent loads)
+    // Check if update exists in Archive (like on subseqent loads) (requires rename scheme)
 	copypath(archivePathToUpdateScript, "").
-	run updateScript.
+    //rename updateScript to "update". // Deprecated!
+    movepath(updateScript, "update").
+	run update.
 } else if exists(archivePathToBootScript) {
     // Check if custom boot script exists in Archive (like on first load)
     copypath(archivePathToBootScript, "").
-    run craftBootScript.
+    //rename craftBootScript to "boot". // Deprecated!
+    movepath(craftBootScript, "bootscript").
+    print "Current list of files:".
+    list files.
+    run bootscript.
 }
 // Neither a custom boot script nor an update exists.
 // Check again after 10s. Create simple boot script for craft to load.

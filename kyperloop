@@ -8,7 +8,7 @@
 // Create separate script and use separate computer for pusher
 // Integrate/test notify() for state changes
 
-// Rename
+
 
 set terminate to false.
 set state to 0.
@@ -25,8 +25,8 @@ print "Ground speed: ". // Start at (14,2)
 
 until terminate {
     // Get variables for iteration of loop.
-    local met = round(time:seconds - startTime).
-    local gs = groundspeed.
+    local met is round(time:seconds - startTime).
+    local gs is groundspeed.
 
     if state = 0 {                          // ***** Rest state *****
 
@@ -117,7 +117,7 @@ until terminate {
     if startTime >= 0 {
         print "MET: " + met.
     } else {
-        print "MET: 0"
+        print "MET: 0".
     }
     print "State " + state + ": " + condition.
     print "Ground speed: " + round(gs, 2).
