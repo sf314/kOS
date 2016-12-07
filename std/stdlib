@@ -2,3 +2,7 @@
 // Standard functions
 copypath("0:SFFPidLoop", "").
 run SFFpidLoop.
+
+copypath("0:SFManoeuvre.ks", "").
+run SFManoeuvre.ks.
+// Add more!
