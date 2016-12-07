@@ -13,3 +13,10 @@ function notify {
 	parameter ms.
 	HUDTEXT("kOS: " + ms, 5, 2, 50, white, false).
 }
+
+
+function fwrite {
+	parameter ms.
+	log "Log: " + ms to log.ks.
+	// Test if it writes "ms" or an actual log message!
+}

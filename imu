@@ -1,0 +1,6 @@
+// Mimic an IMU by returning expected data
+// Useful for testing algorithms and such with actual data
+// Implements gyro, accel, and compass data
+// Does not require any sensors
+
+// Get acceleration components

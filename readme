@@ -1,0 +1,34 @@
+How to use the scripts in this folder in KSP
+
+Make sure that the boot.ks file is set as 
+you boot script in VAB.
+
+Upon loading your craft, the CPU will boot 
+and the boot.ks file will run. It will:
+- search the archive for files titled using
+  craftName.update and run it if it exists
+- search the archive for files titled using 
+  craftName.boot and run it if it exists
+- wait 10 seconds and reboot, to search again
+
+Update scripts are used when your craft is 
+in a mission and you wish for it to execute
+new instructions. Load the scene containting
+your craft in order to do so. *Craft 
+requires connection to KSC.
+
+Boot scripts are used when your craft is 
+initially loaded onto the launchpad and
+ready to begin its first script. This 
+would usually be a launch script unless it
+is a rover detaching from its parent craft.
+
+// *** Standardized functions and files:
+These files will be loaded onto the vessel
+by default, so you can run them anytime.
+
+SFFpidLoop.ks
+SFManoeuvre.ks
+notify(_: message)
+fwrite(_: message)
+
