@@ -121,6 +121,9 @@ until terminate {
     }
     print "State " + state + ": " + condition.
     print "Ground speed: " + round(gs, 2).
+    print "ax = " + imuAccelX().
+    print "ay = " + imuAccelY().
+    print "az = " + imuAccelZ().
     if gs > 200 {
         print "Mach " + round((gs / 331.5), 2) at(0,3).
     }

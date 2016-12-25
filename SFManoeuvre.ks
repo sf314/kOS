@@ -139,7 +139,7 @@ function executeManoeuvre {
 
     // If continue, keep executing nodes
     if continue and hasNode {
-        run executeNode(true).
+        executeManoeuvre(true). // Run as function
     }
 
 

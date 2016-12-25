@@ -4,8 +4,9 @@ clearscreen.
 declare parameter targetAlt.
 // Testing the new alt-driven pid loop!
 
-copy SFFpidLoop from 0. // Already exists if boot.ks is run
-run SFFpidLoop.
+copypath("0:SFFpidLoop.ks", ""). // Already exists if boot.ks is run
+run SFFpidLoop.ks.
+
 // Custom k-Values:
 set kP to 0.005.
 set kI to 0.000001.

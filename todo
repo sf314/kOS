@@ -1,0 +1,8 @@
+Things to do in next boot of KSP:
+
+1. Run ascend balloon script to get data from balloon UPDATED, UNTESTED
+- requires telemetry functions to work
+2. Create generic launch script
+- model gravity turn
+- keep TWR in mind (1.5 below 7km, full power until ap > 70km)
+- test it! Launch.ks
