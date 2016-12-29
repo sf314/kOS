@@ -5,7 +5,7 @@
 // Consider changing to a core Flight System standpoint, with kFS runloop
 // Add blackbox functions
 
-set globalVesselStartTime to time:seconds.
+
 
 function notify {
 	parameter ms.
@@ -19,6 +19,7 @@ function fwrite {
 	// Test if it writes "ms" or an actual log message!
 }
 
+set globalVesselStartTime to time:seconds.
 function millis {
     // Interacts with the global vessel load time.
     return time:seconds - globalVesselStartTime.
