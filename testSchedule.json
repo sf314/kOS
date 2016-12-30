@@ -1,0 +1,31 @@
+{
+    "entries": [
+        "title",
+        "My Schedule",
+        "commandList",
+        {
+            "items": [
+                {
+                    "entries": [
+                        "cmdID",
+                        1,
+                        "timeOffset",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        2,
+                        "timeOffset",
+                        10
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        }
+    ],
+    "$type": "kOS.Safe.Encapsulation.Lexicon"
+}

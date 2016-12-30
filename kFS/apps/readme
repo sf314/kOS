@@ -1,0 +1,17 @@
+Creating a kFS app:
+
+Make a directory. In it, place a makefile, a fsw/src folder,
+and whatever tables you need for the app to run.
+
+1:
+The main file of the app will really be a series of 
+functions that the scheduler can call.
+
+2:
+The main file will house the app runloop. It will execute 
+in accordance with the scheduler, which can call main and 
+pass it certain arguments to tell it what it should do.
+- unless there no function overloading
+The command dictionary will assign a number to a given
+call configuration, and execute the call
+

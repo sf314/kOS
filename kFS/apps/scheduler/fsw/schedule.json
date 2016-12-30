@@ -1,0 +1,63 @@
+{
+    "entries": [
+        "title",
+        "Schedule 1",
+        "RelativeSchedule",
+        {
+            "items": [
+                {
+                    "entries": [
+                        "cmdID",
+                        1,
+                        "timeOffset",
+                        5,
+                        "timeDuration",
+                        20
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        2,
+                        "timeOffset",
+                        10,
+                        "timeDuration",
+                        20
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        },
+        "AbsoluteSchedule",
+        {
+            "items": [
+                {
+                    "entries": [
+                        "cmdID",
+                        3,
+                        "absoluteTime",
+                        30,
+                        "timeDuration",
+                        20
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        4,
+                        "absoluteTime",
+                        100,
+                        "timeDuration",
+                        20
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        }
+    ],
+    "$type": "kOS.Safe.Encapsulation.Lexicon"
+}
