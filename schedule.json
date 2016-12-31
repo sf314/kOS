@@ -8,20 +8,9 @@
                 {
                     "entries": [
                         "cmdID",
-                        0,
-                        "buffer",
-                        5,
-                        "duration",
-                        20
-                    ],
-                    "$type": "kOS.Safe.Encapsulation.Lexicon"
-                },
-                {
-                    "entries": [
-                        "cmdID",
                         1,
                         "buffer",
-                        10,
+                        5,
                         "duration",
                         20
                     ],
@@ -34,7 +23,7 @@
                         "buffer",
                         10,
                         "duration",
-                        10
+                        20
                     ],
                     "$type": "kOS.Safe.Encapsulation.Lexicon"
                 }

@@ -36,6 +36,7 @@ list files.
 
 
 // Run executable
+print "Running main executable: "
 runpath("1:build/cpu1/exe/main.ksm").
 
 
