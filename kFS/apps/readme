@@ -1,17 +1,23 @@
 Creating a kFS app:
 
 Make a directory. In it, place a makefile, a fsw/src folder,
-and whatever tables you need for the app to run.
+and whatever files you need for the app to run.
 
-1:
-The main file of the app will really be a series of 
-functions that the scheduler can call.
-
-2:
-The main file will house the app runloop. It will execute 
-in accordance with the scheduler, which can call main and 
-pass it certain arguments to tell it what it should do.
+The main file will house the app runloop (preferrably it 
+doesn’t loop). It will execute in accordance with the 
+scheduler, which can call main and pass it certain arguments 
+to tell it what it should do.
 - unless there no function overloading
 The command dictionary will assign a number to a given
-call configuration, and execute the call
+call configuration, and execute the call.
+
+The app makefile will compile all of the source files and 
+place them (along with tables and other files) inside the 
+build/cpu1/exe directory.
+
+Be sure to add your app's makefile to apps/make.ks and to
+put the compiling info in apps/build.ks.
+
+And make sure that there's an associated command for it 
+in schedule.json and the command dictionary.
 

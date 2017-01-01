@@ -1,3 +1,12 @@
+//*** main.ks
+//*** 12/29/2016
+//*** Stephen Flores
+
+//*** Purpose
+// Control primary functions of the satellite.
+// 
+
+
 // Main run loop!!! All the things happen here!
 // 1: set important variables (if not in setvars.ks)
 // 2: run!!!
@@ -20,7 +29,7 @@ on gear {
 
 function nominal {
     // Run apps and things from here
-    Scheduler_main(). // Will control other apps via CommandDictionary
+    scheduler_main(). // Will control other apps via CommandDictionary
 
     if rcs {
         // Check for ground update
@@ -54,9 +63,10 @@ until terminate {
     } else {
         // Invalid state.
         print "Invalid state".
-        state = 1.
+        set state to 1.
         safe().
     }
+
     print "State " + state + ", time " + round(millis(), 1).
     wait delayTime.
 }

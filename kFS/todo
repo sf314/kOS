@@ -1,0 +1,10 @@
+Next up on the development train:
+
+See if getting rid of buildApps affects anything (it shouldn't).
+
+Add check for a schedule update
+(and commandDictionary too).
+
+Add support for absolute schedules.
+
+

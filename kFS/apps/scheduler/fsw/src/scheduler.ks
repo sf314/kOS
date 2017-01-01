@@ -10,15 +10,16 @@
 set rtsDone to false.
 set rtsCmdIndex to 0.
 set rtsCmdExecTime to 0.
-set rtsCmdList to readjson("schedule.json")["RelativeSchedule"].
 
+set rtsCmdList to readjson("1:build/cpu1/exe/schedule.json")["RelativeSchedule"].
 
+print "Compiling Scheduler_main...".
 function Scheduler_main {
     // Parameters? Or just call millis()?
 
-    if not rtsDone and rtsCmdExecTime - currentTime <= 0 { // TODO: Check if this causes errors
+    if not rtsDone and rtsCmdExecTime - millis() <= 0 { // TODO: Check if this causes errors
         local rtsCurrentCmd is rtsCmdList[rtsCmdIndex].
-        if rtsCmdIndex < rts:length - 1 {
+        if rtsCmdIndex < rtsCmdList:length - 1 {
             local rtsNextCmd is rtsCmdList[rtsCmdIndex + 1].
             set rtsCmdExecTime to millis() + rtsCurrentCmd["duration"] + rtsNextCmd["buffer"].
             CommandDictionary_executeCommand(rtsCurrentCmd["cmdID"]).
@@ -30,7 +31,8 @@ function Scheduler_main {
         }
     }
 
-    if rtsDone and rtsCmdExecTime - currentTime <= 0 {
+    if rtsDone and rtsCmdExecTime - millis() <= 0 {
+        print "Schedule Complete".
         set state to 1. // Enter safe after completing schedule.
     }
 }
