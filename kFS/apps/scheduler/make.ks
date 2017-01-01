@@ -13,4 +13,5 @@ copypath("1:apps/scheduler/fsw/schedule.json", "1:build/cpu1/exe/schedule.json")
 
 runpath("1:build/cpu1/exe/scheduler.ksm").
 runpath("1:build/cpu1/exe/commandDictionary.ks").
+runpath("1:apps/scheduler/fsw/commandDictionary.ks"). // hey
 cd(volume(1)).

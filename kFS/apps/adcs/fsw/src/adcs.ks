@@ -8,6 +8,8 @@
 // variable, or things like altitude or sun
 // exposure
 
+// Variables (adjust these in order to adjust app behaviour)
+
 
 function ADCS_main {
     // Conditional statements can go here! (like ascent profiles, perhaps).

@@ -36,3 +36,36 @@ function Scheduler_main {
         set state to 1. // Enter safe after completing schedule.
     }
 }
+
+function Scheduler_checkForUpdates {
+    // Look in updates folder for files:
+    // schedule.update.json
+    // CommandDictionary.update.ks
+    print "Checking for updates".
+    if exists("0:updates/schedule.update.json") {
+        print "Found schedule update".
+        set updateTitle to readjson("0:updates/schedule.update.json")["title"].
+        print "Loading " + updateTitle.
+
+        deletepath("1:build/cpu1/exe/schedule.json").
+        deletepath("1:apps/scheduler/fsw/schedule.json").
+        copypath("0:updates/schedule.update.json", "1:apps/scheduler/fsw/schedule.json").
+
+        set updateTitle to readjson("1:apps/scheduler/fsw/schedule.json")["title"].
+        print "Loaded " + updateTitle.
+
+    }
+
+    if exists("0:updates/commandDictionary.update.ks") {
+        print "Found commandDictionary update".
+        deletepath("1:apps/scheduler/fsw/commandDictionary.ks").    // Remove old dictionary from apps folder
+        deletepath("1:build/cpu1/exe/commandDictionary.ks").        // Remove old dictionary from exe folder
+        copypath("0:updates/commandDictionary.update.ks", "1:apps/scheduler/fsw/commandDictionary.ks"). // copy new to schedule folder
+        rcs off.
+        reboot. // *** Requires reboot
+    }
+
+    // Recompile scheduler!!!!
+    runpath("1:apps/scheduler/make.ks").
+    set rtsCmdList to readjson("1:build/cpu1/exe/schedule.json")["RelativeSchedule"].
+}

@@ -1,0 +1,118 @@
+{
+    "entries": [
+        "title",
+        "Schedule 2",
+        "RelativeSchedule",
+        {
+            "items": [
+                {
+                    "entries": [
+                        "cmdID",
+                        1,
+                        "buffer",
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        2,
+                        "buffer",
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        3,
+                        "buffer",
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        4,
+                        "buffer",
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        5,
+                        "buffer",
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        6,
+                        "buffer",
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        7,
+                        "buffer",
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        },
+        "AbsoluteSchedule",
+        {
+            "items": [
+                {
+                    "entries": [
+                        "cmdID",
+                        3,
+                        "absoluteTime",
+                        30,
+                        "duration",
+                        20
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        4,
+                        "absoluteTime",
+                        100,
+                        "duration",
+                        20
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        }
+    ],
+    "$type": "kOS.Safe.Encapsulation.Lexicon"
+}

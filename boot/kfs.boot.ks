@@ -21,7 +21,6 @@ copypath("0:kFS/apps", "1:apps").
 copypath("0:kFS/build", "1:build").
 copypath("0:kFS/setvars.ks", "1:setvars.ks").
 print 1.
-list files.
 
 print "Now running programs:".
 
@@ -34,7 +33,6 @@ print 3.
 runpath("1:build/make.ks").
 
 print "Setup complete, running main executable".
-list files.
 
 
 // Run executable

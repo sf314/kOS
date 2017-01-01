@@ -4,7 +4,7 @@
 
 //*** Purpose
 // Control primary functions of the satellite.
-// 
+//
 
 
 // Main run loop!!! All the things happen here!
@@ -33,6 +33,7 @@ function nominal {
 
     if rcs {
         // Check for ground update
+        Scheduler_checkForUpdates().
         wait 0.01.
         rcs off.
     }
@@ -45,6 +46,7 @@ function safe {
     set delayTime to 5.
     if rcs { // Exit safe mode
         // Check for ground update
+        Scheduler_checkForUpdates().
         // Do other safe things.
         set state to 0.
         set delayTime to 0.1.
