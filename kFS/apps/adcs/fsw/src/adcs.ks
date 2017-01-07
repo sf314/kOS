@@ -43,14 +43,6 @@ function ADCS_main {
 // points itself, meaning it will either follow one
 // of the orbital directions, hold steady, or point
 // towards a certain heading.
-//
-// Possible function calls:
-//
-// ADCS_runmode = 3
-// ADCS_main()
-//
-// ADCS_steering = "radialin"
-// ADCS_main()
 
 // ADCS_runmode = ["sas", "steering", "off"]
 // ADCS_sasmode = ["prograde", "normal", "radial", "target", "stabilityassist"]
