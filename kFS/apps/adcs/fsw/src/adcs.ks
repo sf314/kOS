@@ -36,6 +36,8 @@ function ADCS_main {
         sas off.
         rcs off.
     }
+
+    // Add more runmodes as necessary 
 }
 
 
@@ -49,3 +51,46 @@ function ADCS_main {
 // ADCS_azimuth = 90
 // ADCS_altitude = 45
 // ADCS_main()
+
+
+// ***** In Command Dictionary: List of ADCS Commands (series 100)
+// 100: off
+
+// 101: sas hold
+// 102: sas prograde
+// 103: sas retrograde
+// 104: sas radial (eqivalent to alt/az 0,-90)
+// 105: sas anti-radial (equivalent to alt/az 0, 90)
+// 106: sas normal
+// 107: sas anti-normal
+// 108: sas target
+// 109: sas anti-target
+
+// 110: steering 0, 90
+// 111: steering 0, 45
+// 112: steering 0, 0
+// 113: steering 0, -45
+// 114: steering 0, -90
+// 115: steering 45, 45
+// 116: steering 45, 0
+// 117: steering 45, -45
+// 118: steering 90, 45
+// 119: steering 90, 0
+// 120: steering 90, -45
+// 121: steering 135, 45
+// 122: steering 135, 0
+// 123: steering 135, -45
+// 124: steering 180, 45
+// 125: steering 180, 0
+// 126: steering 180, -45
+// 127: steering 225, 45
+// 128: steering 225, 0
+// 129: steering 225, -45
+// 130: steering 270, 45
+// 131: steering 270, 0
+// 132: steering 270, -45
+// 133: steering 315, 45
+// 134: steering 315, 0
+// 135: steering 315, -45
+
+// 136:
