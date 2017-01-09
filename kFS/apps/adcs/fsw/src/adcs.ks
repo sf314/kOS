@@ -37,7 +37,7 @@ function ADCS_main {
         rcs off.
     }
 
-    // Add more runmodes as necessary 
+    // Add more runmodes as necessary
 }
 
 
@@ -93,4 +93,4 @@ function ADCS_main {
 // 134: steering 315, 0
 // 135: steering 315, -45
 
-// 136:
+// 136: Add custom commands here.
