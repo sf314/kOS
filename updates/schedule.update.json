@@ -1,27 +1,16 @@
 {
     "entries": [
         "title",
-        "Schedule 1",
+        "Schedule 2",
         "RelativeSchedule",
         {
             "items": [
                 {
                     "entries": [
                         "cmdID",
-                        0,
+                        1,
                         "buffer",
-                        0,
-                        "duration",
-                        10
-                    ],
-                    "$type": "kOS.Safe.Encapsulation.Lexicon"
-                },
-                {
-                    "entries": [
-                        "cmdID",
-                        101,
-                        "buffer",
-                        0,
+                        1,
                         "duration",
                         5
                     ],
@@ -30,9 +19,64 @@
                 {
                     "entries": [
                         "cmdID",
-                        100,
+                        2,
                         "buffer",
-                        0,
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        3,
+                        "buffer",
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        4,
+                        "buffer",
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        5,
+                        "buffer",
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        6,
+                        "buffer",
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        7,
+                        "buffer",
+                        1,
                         "duration",
                         5
                     ],
