@@ -33,7 +33,7 @@ function Scheduler_main {
 
     if rtsDone and rtsCmdExecTime - millis() <= 0 {
         print "Schedule Complete".
-        set state to 1. // Enter safe after completing schedule.
+        set state to safemode. // Enter safe after completing schedule.
     }
 }
 

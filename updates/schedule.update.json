@@ -8,7 +8,18 @@
                 {
                     "entries": [
                         "cmdID",
+                        100,
+                        "buffer",
                         1,
+                        "duration",
+                        10
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        101,
                         "buffer",
                         1,
                         "duration",
@@ -19,7 +30,7 @@
                 {
                     "entries": [
                         "cmdID",
-                        2,
+                        102,
                         "buffer",
                         1,
                         "duration",
@@ -30,7 +41,7 @@
                 {
                     "entries": [
                         "cmdID",
-                        3,
+                        104,
                         "buffer",
                         1,
                         "duration",
@@ -41,7 +52,7 @@
                 {
                     "entries": [
                         "cmdID",
-                        4,
+                        110,
                         "buffer",
                         1,
                         "duration",
@@ -52,7 +63,7 @@
                 {
                     "entries": [
                         "cmdID",
-                        5,
+                        111,
                         "buffer",
                         1,
                         "duration",
@@ -63,7 +74,7 @@
                 {
                     "entries": [
                         "cmdID",
-                        6,
+                        112,
                         "buffer",
                         1,
                         "duration",
@@ -74,7 +85,18 @@
                 {
                     "entries": [
                         "cmdID",
-                        7,
+                        113,
+                        "buffer",
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        124,
                         "buffer",
                         1,
                         "duration",

@@ -22,8 +22,20 @@ function CommandDictionary_executeCommand {
     print "Command Dictionary v4".
     print "Execute cmd " + someCommand.
     local cmd is someCommand.
-    // Apparently if statements don't work? Or maybe they do?
+
+    // ***** Default Commands (Series 0)
+    // For basic/emergency tasks
     if cmd = 0 {
+        // Danger: Assume switch to safe mode. Terminate systems.
+        set ADCS_runmode to "off".
+        ADCS_main().
+
+        set state to safemode.
+    }
+    if cmd = 1 {
+
+    }
+    if cmd = 2 {
 
     }
 
@@ -35,6 +47,7 @@ function CommandDictionary_executeCommand {
 
     // ***** ACM Commands (Series 100)
     // Set options, then execute main
+    // Warning! If a node doesn't exist, it will fail.s
     if cmd = 100 {
         set ADCS_runmode to "off".
         ADCS_main().
@@ -241,7 +254,12 @@ function CommandDictionary_executeCommand {
     }
     // **** End ACM Commands
 
-    if cmd = 999 {
+    // **** Emergency Commands
+    if cmd = 998 { // Force abort mission
+        abort on.
+        set state to safemode.
+    }
+    if cmd = 999 { // Reboot
         reboot.
     }
 }

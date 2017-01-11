@@ -48,7 +48,7 @@ function safe {
         // Check for ground update
         Scheduler_checkForUpdates().
         // Do other safe things.
-        set state to 0.
+        set state to nominalmode.
         set delayTime to 0.1.
         wait 0.1.
         rcs off.
@@ -58,14 +58,14 @@ function safe {
 cd("1:build/cpu1/exe").
 until terminate {
 
-    if state = 0 {
+    if state = nominalmode {
         nominal().
-    } else if state = 1 {
+    } else if state = safemode {
         safe().
     } else {
         // Invalid state.
         print "Invalid state".
-        set state to 1.
+        set state to safemode.
         safe().
     }
 
