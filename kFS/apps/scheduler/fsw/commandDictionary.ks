@@ -14,6 +14,7 @@
 
 //*** Table of contents:
 // Series | Package | line
+// 0 | Basics | 22
 // 100 | ADCS | 36 (for now)
 
 
@@ -26,16 +27,40 @@ function CommandDictionary_executeCommand {
     // ***** Default Commands (Series 0)
     // For basic/emergency tasks
     if cmd = 0 {
-        // Danger: Assume switch to safe mode. Terminate systems.
+        // Danger: Assume switch to safe mode. Terminate systems. 'Halt' cmd.
         set ADCS_runmode to "off".
         ADCS_main().
-
         set state to safemode.
     }
     if cmd = 1 {
-
+        // Terminate execution, exit program.
+        // DO NOT RUN EXCEPT FOR MANUAL CONTROL.
+        set terminate to true.
     }
     if cmd = 2 {
+        // Print / log health data
+        print "***** Health snapshot:".
+        if state = safemode {
+            print "Mode: Safe".
+        } else if state = Nominal {
+            print "Mode: Nominal".
+        } else {
+            print "Mode: Unknown".
+        }
+        print "Time: " + millis().
+        print "ADCS: \n\t Runmode: " + ADCS_runmode.
+        print "\t Sasmode: " + ADCS_sasmode.
+        print "Scheduler: \n\t rtsDone: " + rtsDone.
+        print "\t rtsCmdIndex: " + rtsCmdIndex.
+        print "\t rtsCmdExecTime: " + rtsCmdExecTime.
+        print "***** End snapshot".
+    }
+    if cmd = 3 {
+        // Check for update to schedule (super useful!)
+        rcs on.
+        wait 0.01.
+    }
+    if cmd = 4 {
 
     }
 

@@ -20,7 +20,6 @@
 
 
 set terminate to false.
-set loop to 1.
 set delayTime to 0.1.
 
 on gear {
