@@ -11,13 +11,18 @@ set rtsDone to false.
 set rtsCmdIndex to 0.
 set rtsCmdExecTime to 0.
 
-set rtsCmdList to readjson("1:build/cpu1/exe/schedule.json")["RelativeSchedule"].
+set atsDone to false.
+set atsCmdIndex to 0.
+set atsCmdExecTime to 0.
 
-print "Compiling Scheduler_main...".
+set rtsCmdList to readjson("1:build/cpu1/exe/schedule.json")["RelativeSchedule"].
+set atsCmdList to readjson("1:build/cpu1/exe/schedule.json")["AbsoluteSchedule"].
+
 function Scheduler_main {
     // Parameters? Or just call millis()?
 
-    if not rtsDone and rtsCmdExecTime - millis() <= 0 { // TODO: Check if this causes errors
+    // ***** RTS Schedule
+    if not rtsDone and rtsCmdExecTime - millis() <= 0 { // TODO: Check if this causes errors... Nope!!!
         local rtsCurrentCmd is rtsCmdList[rtsCmdIndex].
         if rtsCmdIndex < rtsCmdList:length - 1 {
             local rtsNextCmd is rtsCmdList[rtsCmdIndex + 1].
@@ -31,7 +36,24 @@ function Scheduler_main {
         }
     }
 
-    if rtsDone and rtsCmdExecTime - millis() <= 0 {
+    // ***** ATS Schedule
+    if not atsDone {
+        local atsCurrentCommand is atsCmdList[atsCmdIndex].
+        set atsCmdExecTime to atsCurrentCommand["absoluteTime"].
+
+        if atsCmdIndex < atsCmdList:length - 1 {
+            //local atsNextCmd is atsCmdList[atsCmdIndex + 1].
+            //set atsCmdExecTime to atsCurrentCommand["absoluteTime"]. // Unnecessary?
+            CommandDictionary_executeCommand(atsCurrentCommand["cmdID"]).
+            set atsCmdIndex to atsCmdIndex + 1.
+        } else {
+            set atsCmdExecTime to atsCurrentCommand["absoluteTime"] + atsCurrentCommand["duration"].
+            set atsDone to true.
+            CommandDictionary_executeCommand(atsCurrentCommand["cmdID"]).
+        }
+    }
+
+    if rtsDone and (rtsCmdExecTime - millis() <= 0) and atsDone and (atsCmdExecTime - millis() <= 0) {
         print "Schedule Complete".
         set state to safemode. // Enter safe after completing schedule.
     }
