@@ -12,7 +12,7 @@
                         "buffer",
                         1,
                         "duration",
-                        10
+                        2
                     ],
                     "$type": "kOS.Safe.Encapsulation.Lexicon"
                 },
@@ -97,6 +97,17 @@
                     "entries": [
                         "cmdID",
                         124,
+                        "buffer",
+                        1,
+                        "duration",
+                        5
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                },
+                {
+                    "entries": [
+                        "cmdID",
+                        100,
                         "buffer",
                         1,
                         "duration",

@@ -16,13 +16,14 @@ set ADCS_sasmode to "stabilityassist".
 
 set ADCS_azimuth to 90.
 set ADCS_altitude to 45.
+set waitTime to 0.01.
 
 
 function ADCS_main {
     // Conditional statements can go here! (like ascent profiles, perhaps).
     if ADCS_runmode = "sas" {
         unlock steering.
-        sas on. wait 0.5.           // TODO: is the wait necessary?
+        sas on. wait waitTime.           // TODO: is the wait necessary?
         set sasmode to ADCS_sasmode.
     }
 
