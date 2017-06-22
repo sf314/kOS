@@ -27,10 +27,7 @@ function CommandDictionary_executeCommand {
     // ***** Default Commands (Series 0)
     // For basic/emergency tasks
     if cmd = 0 {
-        // Danger: Assume switch to safe mode. Terminate systems. 'Halt' cmd.
-        set ADCS_runmode to "off".
-        ADCS_main().
-        set state to safemode.
+        // Basically a no-op.
     }
     if cmd = 1 {
         // Terminate execution, exit program.
@@ -61,7 +58,10 @@ function CommandDictionary_executeCommand {
         wait 0.01.
     }
     if cmd = 4 {
-
+        // Danger: Assume switch to safe mode. Terminate systems. 'Halt' cmd.
+        set ADCS_runmode to "off".
+        ADCS_main().
+        set state to safemode.
     }
 
 
@@ -277,6 +277,26 @@ function CommandDictionary_executeCommand {
         set ADCS_altitude to -45.
         ADCS_main().
     }
+
+    // The following are for use with mission-specific targets.
+    // Disable ADCS first.
+    // Create targets using latlng(lat, lng) initializer.
+        // Access heading, distance, lat, lng, bearing,
+    // Note that current vessel is at ship:geoposition.
+    // ex:
+        // LOCK STEERING TO LATLNG(50,20.2):ALTITUDEPOSITION(100000).
+            // 50deg east, 20.2deg north.
+    if cmd = 136 {
+        // Target Kerbal Space Center
+        set ADCS_runmode to "off". ADCS_main().
+        lock steering to latlng(-74.5, -0.5):altitudePosition(65).
+    }
+    if cmd = 137 {
+        // Target some sea-level position
+        set ADCS_runmode to "off". ADCS_main().
+        lock steering to latlng(45, 45).
+    }
+
     // **** End ACM Commands
 
     // **** Emergency Commands

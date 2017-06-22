@@ -8,33 +8,11 @@
                 {
                     "entries": [
                         "cmdID",
-                        0,
+                        3,
                         "buffer",
                         0,
                         "duration",
                         10
-                    ],
-                    "$type": "kOS.Safe.Encapsulation.Lexicon"
-                },
-                {
-                    "entries": [
-                        "cmdID",
-                        101,
-                        "buffer",
-                        0,
-                        "duration",
-                        5
-                    ],
-                    "$type": "kOS.Safe.Encapsulation.Lexicon"
-                },
-                {
-                    "entries": [
-                        "cmdID",
-                        100,
-                        "buffer",
-                        0,
-                        "duration",
-                        5
                     ],
                     "$type": "kOS.Safe.Encapsulation.Lexicon"
                 }
@@ -47,9 +25,9 @@
                 {
                     "entries": [
                         "cmdID",
-                        3,
+                        0,
                         "absoluteTime",
-                        30,
+                        0,
                         "duration",
                         20
                     ],
@@ -58,9 +36,9 @@
                 {
                     "entries": [
                         "cmdID",
-                        4,
+                        3,
                         "absoluteTime",
-                        100,
+                        3,
                         "duration",
                         20
                     ],

@@ -1,3 +1,5 @@
+// For use on the Newton
+
 // Launcher 3 script
 // 1.25m 4-ton payload.
 // Set abort conditions!
@@ -70,8 +72,12 @@ until end {
     // ***** Circularize
     if st = 3 {
         set thr to 1.
-        //lock steering to heading(90,0).
-        lock steering to prograde.
+
+        if eta:apoapsis > 5 {
+            lock steering to prograde.
+        } else {
+            lock steering to heading(90,0).
+        }
 
         if maxthrust < 0.1 { // stage?
             stage.
@@ -91,5 +97,5 @@ set ship:control:pilotmainthrottle to 0.
 if periapsis > 70000 {
     notify("Orbit achieved").
 } else {
-    notify("Program endd.").
+    notify("Program ended.").
 }
