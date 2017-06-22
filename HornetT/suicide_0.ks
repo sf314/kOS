@@ -3,12 +3,6 @@
 // Usable with ~1.8t payload
 // NOTE: Be sure to set the tag of 1st stage engines to Hornet1stStage
 
-// TODO: Adjust to add extra state for soft landing.
-// Final descent at 3m/s using accel as reference
-// All code is the same, but final state contains separate runloop to handle
-// the landing. Also, the burn distance is raised by 25 metres, thus leaving
-// a little over 25 metres of smooth descent.
-
 // ********** INITIALIZE ******************************************************
 wait until rcs.
 rcs off.
@@ -25,18 +19,16 @@ SET g TO KERBIN:MU / KERBIN:RADIUS^2.
 lock gforce to totalCurrentThrust() / (ship:mass * g). // needed?
 lock vel to verticalspeed.
 lock m to ship:mass * 1000.
-
-// Must subtract in order to get early burn. 
 //lock d to alt:radar - 9.21.
-lock d to alt:radar - 27 - 50.
+lock d to alt:radar - 27.
 
 // ********** FUNCTIONS *******************************************************
 function totalMaxThrust {
     local sum to 0.
     local totalEngines is 0.
-    //list engines in engineList.
-    set engineList to ship:partstagged("Hornet1stStage").
-    for en in engineList {
+    //list engines in enlist.
+    set enlist to ship:partstagged("Hornet1stStage").
+    for en in enlist {
         set totalEngines to totalEngines + 1.
         set sum to (sum + en:maxthrust).
     }
@@ -45,9 +37,9 @@ function totalMaxThrust {
 function totalCurrentThrust {
     local sum to 0.
     local totalEngines is 0.
-    //list engines in engineList.
-    set engineList to ship:partstagged("Hornet1stStage").
-    for en in engineList {
+    //list engines in enlist.
+    set enlist to ship:partstagged("Hornet1stStage").
+    for en in enlist {
         set totalEngines to totalEngines + 1.
         set sum to (sum + en:thrust).
     }
@@ -101,7 +93,6 @@ set state to 0.
     set freefall to 2.
     set burning to 3.
     set landed to 4.
-    set finalDescent to 5.
 
 
 // ********** RUNLOOP *********************************************************
@@ -142,18 +133,13 @@ until false {
             gear on.
         }
 
-        // Hijack control flow to finalDescent state
-        if vel > -10 {
-            set state to finalDescent.
-        }
-    }
+        // Will exit upon landing.
 
-    if state = finalDescent {
-        performFinalDescentBurn().
     }
 
 
-    // End program once landing is detected.
+
+
     if ship:status = "landed" {
         set t to 0.
         break.
@@ -170,20 +156,3 @@ until false {
 unlock all.
 set ship:control:pilotmainthrottle to 0.
 print "End of mission".
-
-
-
-
-// ********** Final Descent Burn ***********************************************
-function performFinalDescentBurn {
-    // Maintain constant speed
-    // Thrust upward must equal force of gravity downward
-    // Find ratio of weight / maxthrust to get throttle.
-    // Note, 'm' is ship mass (locked), and there's also 'g'.
-    local thrPercent is ((m * g) / ship:maxthrust) / 1000. // Between zero and 1? Print to find out.
-    printTelemetry().
-    print "thrPercent = " + thrPercent.
-    set t to thrPercent.
-
-    // State change conditions? No; handled by later check.
-}
