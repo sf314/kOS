@@ -4,10 +4,7 @@
 // Send RCS signal to initiate launch.
 // v1.0: Minimal looping. More linear, script-like.
 // v1.1: Tweaking for better targeting. Awesomeness!
-
-// Data Variables
-
-// State variables
+// v2.0: Better boostback burn logic, added suicide burn.
 
 // Flight Functions
 function gravAngle {
@@ -95,8 +92,7 @@ if fuelRemaining() < 0.5 {
     
 // ***** State 3: Boostback
     print "State: Boostback".
-    notify("State 3: Boostback"). print "Start boostback burn: " + floor(missiontime).
-    print "Brakes on. RCS on. Locking gimbal. Locking steering.".
+    notify("State 3: Boostback"). print "Preparing boostback burn: " + floor(missiontime).
     brakes on. rcs on. // Help turning.
     lockGimbal(false).
     
