@@ -15,7 +15,7 @@ function notify {
 
 function fwrite {
 	parameter ms.
-	log "fwrite: " + ms to log.txt.
+	log "Log, " + ms to log.txt.
 	// Test if it writes "ms" or an actual log message!
 }
 
@@ -27,13 +27,13 @@ function millis {
 
 // Telemetry
 // Uses global variable 'telemetry_message'.
-set telemetry_message to " ".
-function telemetry_log {
+set Telemetry_message to " ".
+function Telemetry_log {
 	parameter ms.
 	set telemetry_message to telemetry_message + ms + ", ".
 }
 
-function telemetry_newLine {
+function Telemetry_newLine {
     log telemetry_message to "0:telemetry.csv".
     set telemetry_message to " ".
 } // Save with upload() command.
@@ -55,7 +55,7 @@ function include {
         // Get from archive
         set path to "0:" + file.
         print "Retrieving " + file + " from archive.".
-        copypath(path, "").
+        copypath(path, file).
 
         // Run from local
         set path to "1:" + file.
