@@ -5,7 +5,7 @@
 // Consider changing to a core Flight System standpoint, with kFS runloop
 // Add blackbox functions
 
-
+print "Standard IO".
 
 function notify {
 	parameter ms.

@@ -6,6 +6,7 @@ print "BlueFin boot".
 
 // Libraries:
 copypath("0:std/stdio.ks", "stdio.ks"). run stdio.ks.
+copypath("0:std/navball.ks", "navball.ks"). run navball.ks.
 copypath("0:std/Prediction.ks", "Prediction.ks"). run Prediction.ks.
 
 // Main:

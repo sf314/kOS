@@ -9,3 +9,5 @@ print "Standard Library".
 // 
 // copypath("0:science.ks", "").
 // run science.ks.
+
+// *** The following has been taken from / inspired by KSLib

@@ -99,8 +99,10 @@ if fuelRemaining() < 0.5 {
     print "Brakes on. RCS on. Locking gimbal. Locking steering.".
     brakes on. rcs on. // Help turning.
     lockGimbal(false).
-    lock steering to heading(90, 90). wait 10.
-    lock steering to heading(270, 0). wait 5.
+    
+    lock steering to heading(90, 90). wait until navball_pitch() > 85.
+    lock steering to heading(270, 0). wait until navball_pitch() < 20.
+    
     print "Beginning burn...".
     brakes off.
     lock throttle to 1.
